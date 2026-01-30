@@ -6,6 +6,162 @@
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
+/* --- Sticky Header --- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.header__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* --- Bitcoin Ticker --- */
+.ticker {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(30, 30, 30, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  transition: border-color 0.2s;
+}
+
+.ticker:hover {
+  border-color: rgba(247, 147, 26, 0.3);
+}
+
+.ticker__indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #F7931A;
+  transition: background-color 0.3s ease;
+}
+
+.ticker__content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.ticker__label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ticker__price {
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+
+.ticker__status {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- Nostr Login --- */
+.nostr-login {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(30, 30, 30, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  transition: border-color 0.2s;
+}
+
+.nostr-login:hover {
+  border-color: rgba(247, 147, 26, 0.3);
+}
+
+.nostr-login__btn {
+  background: transparent;
+  border: none;
+  color: #eee;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.nostr-login__btn:hover:not(:disabled) {
+  color: #F7931A;
+}
+
+.nostr-login__btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.nostr-login--connected {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.nostr-login__npub {
+  font-size: 0.85rem;
+  color: #10b981;
+  font-variant-numeric: tabular-nums;
+}
+
+.nostr-login__btn--logout {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.25rem;
+}
+
+.nostr-login__btn--logout:hover {
+  color: #ef4444;
+}
+
+.nostr-login--error {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.nostr-login__link {
+  color: #F7931A;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nostr-login__link:hover {
+  color: #ffa726;
+}
+
+.nostr-login__btn--retry {
+  color: #ffa726;
+}
+
 /* --- Layout --- */
 .container {
   max-width: 960px;
@@ -191,6 +347,17 @@
 
 /* --- Responsive --- */
 @media (max-width: 640px) {
+  .header__container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .ticker,
+  .nostr-login {
+    width: 100%;
+    justify-content: center;
+  }
+
   .hero {
     padding: 3rem 1rem 4rem;
   }
