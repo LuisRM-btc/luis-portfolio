@@ -24,6 +24,7 @@ export default function NostrLogin() {
     try {
       // Check if NIP-07 extension is available
       if (!window.nostr) {
+        console.log('Nostr extension not found')
         setError('nostr-extension')
         setIsLoading(false)
         return
