@@ -1,5 +1,12 @@
 export const PROJECTS = [
   {
+    title: 'BoltPOS - Bitcoin Lightning POS',
+    description: 'Offline-first Mobile POS with real-time fiat-to-sats conversion and LNURL-Pay integration.',
+    tags: ['React', 'Zustand', 'Dexie.js', 'Lightning Network'],
+    liveHref: 'https://bolt-pos-bitcoin.vercel.app/',
+    codeHref: 'https://github.com/LuisRM-btc/bolt-pos-bitcoin',
+  },
+  {
     title: 'Sats Converter',
     description: 'Real-time PWA with Lightning Network integration.',
     tags: ['React', 'Vite', 'API'],
